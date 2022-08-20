@@ -1,0 +1,24 @@
+
+<div class="container">
+
+    <div class="row ">
+
+        <div class="col-md-4">
+
+            <img class="w-100 mt-5 " [src]="imgPrefix+tvDetails.poster_path" alt="">
+        </div>
+
+        <div class="col-md-8 mt-5">
+            <h3>{{tvDetails.name}}</h3>
+            <p class="second-color">{{tvDetails.overview}}</p>
+            <button class="btn btn-primary  mr-2 my-3 " *ngFor='let genre of genres'>{{genre.name}}</button>
+            <div class="mb-4">Vote : {{tvDetails.vote_average}}</div>
+            <div class="mb-4">VoteCount : {{tvDetails.vote_count}}</div>
+            <div class="mb-4">popularity : {{tvDetails.popularity}}</div>
+
+
+
+
+        </div>
+    </div>
+</div>

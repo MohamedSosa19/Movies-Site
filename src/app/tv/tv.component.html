@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row py-5">
+
+        <div class="col-md-4 d-flex align-items-center">
+            <div>
+                <div class="brdr w-25 mb-4"></div>
+                <h2>Tv To Watch <br>Right Now</h2>
+                <p class="second-color">most watched tv by days </p>
+                <div class="brdr w-75 mb-4"></div>
+            </div>
+
+
+        </div>
+
+        <div *ngFor="let tv of TrendingTv | paginate: { itemsPerPage: 10, currentPage: p }" class="col-md-2">
+            <div class="tv my-2 position-relative">
+                <img [src]="imgPrefix+tv.poster_path" class="w-100" alt="tv.title">
+                <h3 class="h6 my-2">{{tv.title}}</h3>
+                <div class="vote">
+                    {{tv.vote_average}}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" 
+color = "#fff" type = "pacman" [fullScreen] = "true">
+<p style="color: white" > Loading... </p></ngx-spinner>
+
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

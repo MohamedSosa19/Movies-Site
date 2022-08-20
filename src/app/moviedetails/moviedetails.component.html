@@ -1,0 +1,27 @@
+<ngx-spinner bdColor="#08090A" size="large" type="ball-scale-multiple">
+</ngx-spinner>
+<div class="container">
+
+    <div class="row ">
+
+        <div class="col-md-4">
+
+            <img class="w-100 mt-5 " [src]="imgPrefix+movieDetails.poster_path" alt="">
+        </div>
+
+        <div class="col-md-8 mt-5">
+            <h3>{{movieDetails.title}}</h3>
+            <p class="second-color">{{movieDetails.overview}}</p>
+            <button class="btn btn-primary  mr-2 my-3 " *ngFor='let genre of genres'>{{genre.name}}</button>
+            <div class="mb-4">Vote : {{movieDetails.vote_average}}</div>
+            <div class="mb-4">VoteCount : {{movieDetails.vote_count}}</div>
+            <div class="mb-4">popularity : {{movieDetails.popularity}}</div>
+            <div class="mb-4">relase date : {{movieDetails.release_date}}</div>
+
+
+
+
+        </div>
+    </div>
+</div>
+

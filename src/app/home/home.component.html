@@ -1,0 +1,101 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" 
+color = "#fff" type = "pacman" [fullScreen] = "true">
+<p style="color: white" > Loading... </p></ngx-spinner>
+
+
+<input class="form-control site-search"  [(ngModel)]="term"
+    placeholder="Search Movies or TVShow">
+<app-homeheader [TrendingMovies]='TrendingMovies'></app-homeheader>
+
+<div class="container">
+
+    <div class="row py-5">
+
+        <div class="col-md-4 d-flex align-items-center">
+            <div>
+                <div class="brdr w-25 mb-4"></div>
+                <h2>Trending Movies To Watch <br>Right Now</h2>
+                <p class="second-color">most watched movies by days </p>
+                <div class="brdr w-75 mb-4"></div>
+            </div>
+
+
+        </div>
+
+        <div *ngFor="let movie of TrendingMovies| search:term" class="col-md-2">
+            <div class="movie my-2 position-relative">
+                <a >
+                    <div class="details-icon">
+                        <i class="fas fa-info-circle fa-2x" routerLink='/details/{{movie.id}}'></i>
+
+                    </div>
+                    <img [src]="imgPrefix+movie.poster_path" class="w-100" alt="movie.title">
+                    <h3 class="h6 my-2">{{movie.title}}</h3>
+                    <div class="vote">
+                     {{movie.vote_average}}
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row py-5">
+
+        <div class="col-md-4 d-flex align-items-center">
+            <div>
+                <div class="brdr w-25 mb-4"></div>
+                <h2>Trending Tv To Watch <br>Right Now</h2>
+                <p class="second-color">most watched tv by days </p>
+                <div class="brdr w-75 mb-4"></div>
+            </div>
+
+
+        </div>
+
+        <div *ngFor="let tv of TrendingTv | search:term" class="col-md-2">
+            <div class="tv my-2 position-relative">
+                <a>
+                    <div class="details-icon">
+                        <i class="fas fa-info-circle fa-2x" [routerLink]='["/tvdetails",tv.id]'></i>
+
+                    </div>
+                    <img [src]="imgPrefix+tv.poster_path" class="w-100" alt="tv.title">
+                    <h3 class="h6 my-2">{{tv.name}}</h3>
+                    <div class="vote">
+                        {{tv.vote_average}}
+                    </div>
+
+                </a>
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row py-5">
+
+        <div class="col-md-4 d-flex align-items-center">
+            <div>
+                <div class="brdr w-25 mb-4"></div>
+                <h2>Trending People To Watch <br>Right Now</h2>
+                <p class="second-color">most watched people by days </p>
+                <div class="brdr w-75 mb-4"></div>
+            </div>
+
+
+        </div>
+
+        <div *ngFor="let person of TrendingPerson" class="col-md-2">
+            <div class="person my-2 position-relative">
+                <img [src]="imgPrefix+person.profile_path" class="w-100" alt="person.title">
+                <h3 class="h6 my-2">{{person.name}}</h3>
+               
+            </div>
+
+        </div>
+
+    </div>
+</div>

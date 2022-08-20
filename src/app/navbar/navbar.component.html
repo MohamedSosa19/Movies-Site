@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg bg-dark sticky-top ">
+    <a class="navbar-brand " href="#">Noxe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item">
+          <a  *ngIf='isLogin'class="nav-link" routerLink="home" routerLinkActive='active-component'  >Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <a *ngIf='isLogin' class="nav-link" routerLink="movies" routerLinkActive='active-component'>Movies</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf='isLogin' class="nav-link" routerLink="tv" routerLinkActive='active-component'>TV Shows</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf='isLogin' class="nav-link" routerLink="people" routerLinkActive='active-component'>People</a>
+        </li>
+       
+        
+        
+      
+      </ul>
+
+     
+      
+      <div class="social-media">
+        <i class="fab mx-2 fa-instagram"></i>
+        <i class="fab mx-2 fa-spotify"></i>
+        <i class="fab mx-2 fa-facebook"></i>
+        <i class="fab mx-2 fa-youtube"></i>
+        <i class="fab mx-2 fa-soundcloud"></i>
+      </div>
+      <ul class="navbar-nav ">
+        
+        <li class="nav-item">
+          <a *ngIf='!isLogin' class="nav-link" routerLink="login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf='!isLogin' class="nav-link" routerLink="register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf='isLogin' class="nav-link" routerLink="login"  (click)="islogout()">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf='isLogin' class="nav-link"  routerLink="settings"><i class="fa fa-cog" aria-hidden="true"></i>
+          </a>
+        </li>
+       
+      </ul>
+    </div>
+  </nav>
